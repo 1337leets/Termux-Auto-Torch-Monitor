@@ -7,6 +7,23 @@ Uses Android sensor APIs via Termux-API to implement automatic flashlight contro
 
 ---
 
+## ⚠️ IMPORTANT – Sensor Compatibility
+
+This project depends on your device’s Ambient Light Sensor (ALS) name.
+Different Android devices expose different sensor identifiers.
+
+Before running the script, check your sensor list:
+```bash
+termux-sensor -l
+```
+Find your Ambient Light Sensor and update the following line in sensors.sh:
+```bash
+SENSOR_NAME="tsl2591 Ambient Light Sensor Non-wakeup"
+```
+Replace the value with your device’s sensor identifier.
+
+---
+
 ## ✨ Features
 
 - Ambient light sensor–based automatic torch control
@@ -19,8 +36,6 @@ Uses Android sensor APIs via Termux-API to implement automatic flashlight contro
 - Temporary manual torch pulse (`t` key)
 - Clean exit with `q`
 - Modular architecture (separated sensor, battery, torch, UI layers)
-
----
 
 ## 🧠 Architecture
 
